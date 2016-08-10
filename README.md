@@ -6,7 +6,9 @@ This repository contains project work for Udacity's Data Analyst Nanodegree.
 
 Projects:
 
-Project 0 - Analyze Chopstick Length
+
 Project 1 - Perceptual Phenomenon Testing
-Project 2 - Analyzing the NYC Subway Dataset
+
+Project 2 - Analyzing Titanic Passenger Surviual Factors
+
 Project 3 - Data Wrangle OpenStreetMaps Data
