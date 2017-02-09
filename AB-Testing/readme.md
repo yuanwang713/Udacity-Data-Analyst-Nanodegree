@@ -94,13 +94,77 @@ Total pageviews required: 4,741,213
 
 ### Duration vs. Exposure
 
-Considering the required pageviews, an exposure can be specified based upon the risk of the experiment, and from this a duration can be calculated. The exposure is dependent upon the risk involved and because the screener is a mild reminder about time commitment, it constitutes minimal risk. None of the participants could suffer physical harm as a result of the experiment, nor is sensitive data being collected, therefore a 100% exposure is a safe. Dividing total pageviews by the number of pageviews per day in the baseline (40,000), gives us a duration of 119 days were Udacity to divert it’s entire traffic. This is too long of an experiment and we should reduce the duration. We can exclude retention as an evaluation metric and consider the next limiting metric, net conversion. With a revised 685,275 necessary pageviews, it takes about 18 days to run the experiment with 100% diversion and about 35 days with 50% diversion.  
+Considering the required pageviews, an exposure can be specified based upon the risk of the experiment, and from this a duration can be calculated. The exposure is dependent upon the risk involved and because the screener is a mild reminder about time commitment, it constitutes minimal risk. None of the participants could suffer physical harm as a result of the experiment, nor is sensitive data being collected, therefore a 100% exposure is a safe. 
 
-### Result Analysis
+Dividing total pageviews by the number of pageviews per day in the baseline (40,000), gives us a duration of 119 days were Udacity to divert it’s entire traffic. This is too long of an experiment and we should reduce the duration. We can exclude retention as an evaluation metric and consider the next limiting metric, net conversion. With a revised 685,275 necessary pageviews, it takes about 18 days to run the experiment with 100% diversion and about 35 days with 50% diversion.  
 
-95% Confidence interval for the difference between the experiment and control group for evaluation metrics.
+## Experiment Analysis
 
-| Metric | dmin | Observed Difference | CI Lower Bound | CI Upper Bound | Result |
-|:------:|:----------:|:----------:|:----------:|:-----------:|:------:|
-| Gross Conversion | 0.01 | -0.0205 | -.0291 | -.0120 | Satistically and Practically Significant |
-| Net Conversion | 0.0075 | -0.0048 | -0.0116 | 0.0019 | Neither Statistically nor Practically Significant |
+The experimental data can be found in the following links:
+
+- [experiment group](data/Final Project Results - Experiment.csv)
+- [control group](data/Final Project Results - Control.csv)
+
+### Sanity Checks
+
+For invariant metrics we expect equal diversion into the experiment and control group.  We will test this at the 95% confidence interval.
+
+| Metric | Expected Value | Observed Value | CI Lower Bound | CI Upper Bound | Result |
+|:------:|:--------------:|:--------------:|:--------------:|:--------------:|:------:|
+| Number of Cookies | 0.5000 | 0.5006 | 0.4988 | 0.5012 | Pass |
+| Number of clicks on "start free trial" | 0.5000 | 0.5005 | 0.4959 | 0.5042 | Pass |
+| Click-through-probability | 0.0821 | 0.0822 | 0.0812 | 0.0830 | Pass | 
+
+###  Effect Size Tests
+For each of your evaluation metrics, give a 95% confidence interval around the difference between the experiment and control groups. Indicate whether each metric is statistically and practically significant.
+
+Gross Conversion:
+
+|               | Control Group | Experiment|
+| ------------- |:-------------:| -----:    |
+| Clicks        | 17293 | 17260 |
+| Enrolment     | 3785  | 3423  |
+| Gross Conversion  | 0.2188746892    | 0.1983198146 |
+```
+SE = 0.004371675385
+m = SE * 1.96 = 0.00856848375
+Pooled Probability = 0.2086
+D hat = -0.02055
+Confidence Interval = [-0.0291,-0.0120]
+
+```
+Result:
+```
+Gross conversion CI: [-.0291, -.0120]
+- statistically significant (CI doesn't contain zero)
+- practically significant (CI doesn't contain d_min value)
+```
+Net Conversion:
+
+|               | Control Group | Experiment|
+| ------------- |:-------------:| -----:    |
+| Clicks        | 17293 | 17260 |
+| Enrolment     | 2033  | 1945  |
+| Net Conversion  | 0.1175620193    | 0.1126882966 |
+```
+SE = 0.003434133513
+m = SE * 1.96 = 0.0067
+Pooled Probability = 0.2086
+D hat = -0.0049
+Confidence Interval = [-0.0116,-0.0018]
+```
+Result:
+```
+Net conversion CI: (-0.0116, 0.0018)
+- not statistically significant (CI contains zero)
+- not practically significant (CI contain d_min = +/- 0.0075)
+```
+
+### Sign Tests
+
+| Metric | p-value for sign test | Statistically Significant @ alpha .05? |
+|:------:|:--------------:|:--------------:|
+| Gross Conversion | 0.0026 | Yes |
+| Net Conversion | 0.6776 | No |
+
+
