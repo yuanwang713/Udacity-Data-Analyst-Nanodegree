@@ -31,3 +31,32 @@ These are metrics available for us to use in the experiment. We need to select a
 _**Invariant Metrics:** number of cookies, number of clicks, click-through-probability_
 
 _**Evaluation Metrics:** gross conversion, retention, net conversion_
+
+### Invariant Metrics ###
+Invariant metrics are metrics that shouldn’t change across control and experiment group. In this experiment, the experiment starts when that time question pops up. Therefore, any metrics that happen before this point could be considered as invariant metrics. 
+
+**Number of cookies**: As this metric represents number of unique cookies to view the course overview page and we equally distribute traffic to control and experiment group, we can expect that this metric is invariant because this event happens before screener shows up.
+
+**Number of clicks**: Number of unique cookie to click ‘Start free trial’ button shouldn’t change across control and experiment group because this event has not affected by screener. 
+
+**Click-through-probability**: This metric is calculated by the number of clicks and the number of cookies. As these two metrics are invariant, we can conclude that Click-through-probability is invariant too. 
+
+### Evaluation Metrics ###
+
+## Measuring Standard Deviation
+
+**_Analytical Estimate of Standard Deviation_**
+| Evaluation Metric | Standard Deviation |
+|:-------------------:|:--------------------:|
+| Gross Conversion  | .0202 |
+| Retention         | .0549 |
+| Net Conversion    | .0156 |
+
+### Result Analysis
+
+95% Confidence interval for the difference between the experiment and control group for evaluation metrics.
+
+| Metric | dmin | Observed Difference | CI Lower Bound | CI Upper Bound | Result |
+|:------:|:----------:|:----------:|:----------:|:-----------:|:------:|
+| Gross Conversion | 0.01 | -0.0205 | -.0291 | -.0120 | Satistically and Practically Significant |
+| Net Conversion | 0.0075 | -0.0048 | -0.0116 | 0.0019 | Neither Statistically nor Practically Significant |
