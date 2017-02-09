@@ -42,10 +42,33 @@ Invariant metrics are metrics that shouldn’t change across control and experim
 **Click-through-probability**: This metric is calculated by the number of clicks and the number of cookies. As these two metrics are invariant, we can conclude that Click-through-probability is invariant too. 
 
 ### Evaluation Metrics ###
+Evaluation metrics are expected to change over the course of the experiment. By comparing differences between the control and experimental groups, we can measure the effect of the screener and test our hypothesis. Of the remaining metrics not considered to be invariant, user-id is excluded from the list of potential evaluation metrics. This is because user-id alone is a count, and gross conversion is a fraction that incorporates user-id while also offering a better way to track the effect of the screener. The evaluation metrics for this experiment are:
+
+• Gross conversion rate (could measure whether or not the screener had an effect on enrollment)
+
+• Retention rate (could measure whether or not the screener had an effect on the 14-day
+dropout rate)
+
+• Net conversion rate (could measure whether or not the screener had any effect on the 14-day completion rate, although not able to tell us where in this process)
+
+If the hypothesis is correct, we would expect to see specific changes in the evaluation metrics. Gross conversion would be lower as those students likely to drop during the 14-day trial would be filtered by the screener. Retention rate would be higher as those likely to drop would not have enrolled, and those who enrolled would not be likely to drop. Last, net conversion would be unchanged as the amount of students to continue past the free trial and eventually complete the course would have been unaffected.
 
 ## Measuring Standard Deviation
 
-**_Analytical Estimate of Standard Deviation_**
+Before conducting the experiment, data was collected to get daily values for cookies, enrollments, click through probability, gross conversion, retention, and net conversion on Udacity’s website. The data collected is referred to as the baseline.
+
+In the experiment, we use 'default 5,000 cookies per day' approach in each group. From this, a rough estimate of the expected standard deviation for each evaluation metric can be calculated. First, to get an approximation of the number of clicks and enrollments for this daily sample of 5,000 cookies, we scale by the fraction of pageviews in the sample over the pageviews in the baseline.
+
+Therefore, from 3,200 clicks and 660 enrollments in the baseline, we predict 400 clicks and 82.5 enrollments per day in the sample.
+Theoretical standard deviation calculation is as followed:
+```
++ Gross conversion: se = sqrt(0.20625*(1-0.20625)/3200) = 0.00715.
+For 5000 pageviews, we have new_se = 0.00715 * sqrt(40000/5000) = 0.0202 
++ Retention: se = sqrt((0.53*(1-0.53)/660) = 0.0194
+For 5000 pageviews, we have new_se = 0.0194 * sqrt(40000/5000) = 0.0549
++ Net conversion: se = sqrt(0.1093125*(1-0.1093125)/3200) = 0.0055159.
+For 5000 pageviews, we have new_se = 0.0055 * sqrt(40000/5000) = 0.0156 
+```
 | Evaluation Metric | Standard Deviation |
 |:-------------------:|:--------------------:|
 | Gross Conversion  | .0202 |
