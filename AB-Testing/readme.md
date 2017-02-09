@@ -1,4 +1,4 @@
-# A/B Testing to Determine an Effective Intervention to Decrease Early Udacity Course Cancellation
+# Design and Analyze A/B Testing - Udacity Free Trial Screener
 
 ## Experiment Description
 
@@ -124,7 +124,7 @@ Gross Conversion:
 | ------------- |:-------------:| -----:    |
 | Clicks        | 17293 | 17260 |
 | Enrolment     | 3785  | 3423  |
-| Gross Conversion  | 0.2188746892    | 0.1983198146 |
+| Gross Conversion  | 0.2188    | 0.1983 |
 ```
 SE = 0.004371675385
 m = SE * 1.96 = 0.00856848375
@@ -145,7 +145,7 @@ Net Conversion:
 | ------------- |:-------------:| -----:    |
 | Clicks        | 17293 | 17260 |
 | Enrolment     | 2033  | 1945  |
-| Net Conversion  | 0.1175620193    | 0.1126882966 |
+| Net Conversion  | 0.1175    | 0.1126 |
 ```
 SE = 0.003434133513
 m = SE * 1.96 = 0.0067
@@ -167,4 +167,11 @@ Net conversion CI: (-0.0116, 0.0018)
 | Gross Conversion | 0.0026 | Yes |
 | Net Conversion | 0.6776 | No |
 
+## Summary
+The effect size tests determine that gross conversion is both statistically and practically significant, while net conversion is neither. The gross conversion rate dropped in the experimental group by approximately 2% and thus the screener proved to be effective at reducing the number of students that enrolled from initial click. This supports our hypothesis if the screener is to be effective. Net conversion, however, was reduced by approximately 0.5% indicating that the screener had a negative effect on the number of students that would go on to complete the 14-day trial. In other words, the screener deterred some students from enrolling that would have otherwise completed the trial. This is not our intended effect and does not support the hypothesis.
+
+The Bonferroni correction was not used in the analysis phase because our launch decision is based upon the significance of two metrics rather than just one. Had we used just one metric out of several to base our launch decision, the Bonferroni method would be appropriate. But, because the nature of our hypothesis requires that two effects be considered, we cannot base
+our decision in one metric alone.
+
+The sign tests allow for an additional form of analysis. The conclusion from the sign test mirrors that of the effect size test, that gross conversion is significant but net conversion is not.
 
