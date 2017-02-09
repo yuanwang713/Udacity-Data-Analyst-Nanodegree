@@ -75,6 +75,27 @@ For 5000 pageviews, we have new_se = 0.0055 * sqrt(40000/5000) = 0.0156
 | Retention         | .0549 |
 | Net Conversion    | .0156 |
 
+## Sizing
+
+The following calcations are based on [baseline conversion data](data/baseline_vals.csv).
+
+### Number of Samples vs. Power
+
+A sample size calculator will give us the required number of samples for each evaluation metric. Each metric has it's own
+unit of size (clicks or enrolls), so once we arrive at the required sample size, we need to scale from the given unit to pageviews by the ratio seen in the baseline. Pageviews required for each metric were calculated using an alpha value of 0.05 and beta value of 0.2.
+
+| Metric | Baseline (%) | Dmin (%)| Alpha (%)| Power (%)| Sample size per Group | Total Pageviews |
+|:------:|:----------:|:----------:|:----------:|:-----------:|:------:|:------:|
+| Gross Conversion | 20.63 | 1.00 | 5.00 | 80.00 | 25,835 clicks | 645,875 |
+| Retention        | 53.00 | 1.00 | 5.00 | 80.00 |39,115 enrollments | 4,741,213 |
+| Net Conversion | 10.93 | 0.75 | 5.00 | 80.00 | 27,413 clicks | 685,325 |
+
+Total pageviews required: 4,741,213 
+
+### Duration vs. Exposure
+
+Considering the required pageviews, an exposure can be specified based upon the risk of the experiment, and from this a duration can be calculated. The exposure is dependent upon the risk involved and because the screener is a mild reminder about time commitment, it constitutes minimal risk. None of the participants could suffer physical harm as a result of the experiment, nor is sensitive data being collected, therefore a 100% exposure is a safe. Dividing total pageviews by the number of pageviews per day in the baseline (40,000), gives us a duration of 119 days were Udacity to divert it’s entire traffic. This is too long of an experiment and we should reduce the duration. We can exclude retention as an evaluation metric and consider the next limiting metric, net conversion. With a revised 685,275 necessary pageviews, it takes about 18 days to run the experiment with 100% diversion and about 35 days with 50% diversion.  
+
 ### Result Analysis
 
 95% Confidence interval for the difference between the experiment and control group for evaluation metrics.
