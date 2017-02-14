@@ -27,17 +27,17 @@ The data is roughly normally distributed, with a slight left tail. I will use a 
 
 ####3. Report some descriptive statistics regarding this dataset.
 
-**Congruent**
-```
-Mean: 14.0
-SD: 3.6
-```
+|	|Congruent | Incongruent|
+|:----:|:-----:|:----:|
+|count|24.000000	|24.000000|
+|mean|	14.051125|	22.015917
+|std	|3.559358	|4.797057
+|min	|8.630000	|15.687000
+|25%	|11.895250	|18.716750
+|50%	|14.356500	|21.017500
+|75%|	16.200750	|24.051500
+|max	|22.328000|	35.255000
 
-**Incongruent**
-```
-Mean: 22.0
-SD: 4.8
-```
 
 ####4. Provide one or two visualizations that show the distribution of the sample data. Write one or two sentences noting what you observe about the plot or plots.
 
