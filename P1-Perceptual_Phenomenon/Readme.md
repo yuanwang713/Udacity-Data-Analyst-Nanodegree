@@ -2,28 +2,28 @@
 ##Background information
 In a Stroop task, participants are presented with a list of words, with each word displayed in a color of ink. The participant’s task is to say out loud the color of the ink in which the word is printed. The task has two conditions: a congruent words condition, and an incongruent words condition. In the congruent words condition, the words being displayed are color words whose names match the colors in which they are printed. In the incongruent words condition, the words displayed are color words whose names do not match the colors in which they are printed. In each case, we measure the time it takes to name the ink colors in equally-sized lists. Each participant will go through and record a time from each condition.
 
-**Dataset:** [View CSV](stroopdata.csv)
+**Dataset:** [stroopdata.csv](stroopdata.csv)
 
 ##Questions for investigation
 
 ####1. What is our independent variable? What is our dependent variable?
-**Dependent variable:** Time to name ink colours
+**Dependent variable:** Response time from 24 participants.
 
-**Independent variable:** Condition (congruent/incongruent)
+**Independent variable:** Congruent or incongruent word list
 
 ####2. What is an appropriate set of hypotheses for this task? What kind of statistical test do you expect to perform?
 
 **Hypothesis test**
 
-**H<sub>0</sub>:** Time to name colours is the same for congruent and incongruent tasks
+**H<sub>0</sub>:** There is no difference in response time between viewing congruent & incongruent words
 
-**H<sub>A</sub>:** Time to name colours is *not* the same for congruent and incongruent tasks
+**H<sub>A</sub>:** here is significant difference in response time between viewing congruent & incongruent words
 
 **Statistical test**
 
-![Normal probability plot (Congruent)](pp-congruent.png) ![Normal probability plot (Incongruent)](pp-incongruent.png)
+Because sample size is samller than 30, we can't use z-test as central limit theorm can't be applied here. The Dependent Samples t-Test is the appropriate statistical test as the same subjects are assigned two different conditions. The different conditions are dependent because, in theory, by doing the first test you have some practice doing it and you might have an unfair advantage due to this learning effect in doing the similar type of test second. In addition, we don't have any population parameters provided (so a z-test would not be appropriate here).
 
-The data is roughly normally distributed, with a slight left tail. I will use a two-tailed dependent t-test because we are comparing two dependent samples of data.
+
 
 ####3. Report some descriptive statistics regarding this dataset.
 
@@ -43,7 +43,7 @@ The data is roughly normally distributed, with a slight left tail. I will use a 
 
 **Completion times of congruent and incongruent tasks**
 
-![Completion times of congruent and incongruent tasks](completion-plot.png)
+![alt tag] (https://github.com/yuanwang713/Udacity-Data-Analyst-Nanodegree/blob/master/P1-Perceptual_Phenomenon/hist_congrent.png)
 
 Congruent tasks appear to be consistently completed faster than incongruent tasks.
 
