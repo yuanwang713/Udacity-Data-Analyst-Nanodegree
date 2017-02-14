@@ -12,3 +12,5 @@ Project 1 - Perceptual Phenomenon Testing
 Project 2 - Analyzing Titanic Passenger Surviual Factors
 
 Project 3 - Data Wrangle OpenStreetMaps Data
+
+Project 4 - Design and analyze A/B test
