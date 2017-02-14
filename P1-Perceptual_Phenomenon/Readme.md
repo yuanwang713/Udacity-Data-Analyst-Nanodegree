@@ -1,6 +1,7 @@
 #Project 1: Test a Perceptual Phenomenon
 ##Background information
 In a Stroop task, participants are presented with a list of words, with each word displayed in a color of ink. The participant’s task is to say out loud the color of the ink in which the word is printed. The task has two conditions: a congruent words condition, and an incongruent words condition. In the congruent words condition, the words being displayed are color words whose names match the colors in which they are printed. In the incongruent words condition, the words displayed are color words whose names do not match the colors in which they are printed. In each case, we measure the time it takes to name the ink colors in equally-sized lists. Each participant will go through and record a time from each condition.
+![alt tag](https://github.com/yuanwang713/Udacity-Data-Analyst-Nanodegree/blob/master/P1-Perceptual_Phenomenon/download.png)
 
 **Dataset:** [stroopdata.csv](stroopdata.csv)
 
@@ -22,8 +23,6 @@ In a Stroop task, participants are presented with a list of words, with each wor
 **Statistical test**
 
 Because sample size is samller than 30, we can't use z-test as central limit theorm can't be applied here. The Dependent Samples t-Test is the appropriate statistical test as the same subjects are assigned two different conditions. The different conditions are dependent because, in theory, by doing the first test you have some practice doing it and you might have an unfair advantage due to this learning effect in doing the similar type of test second. In addition, we don't have any population parameters provided (so a z-test would not be appropriate here).
-
-
 
 ####3. Report some descriptive statistics regarding this dataset.
 
@@ -58,10 +57,7 @@ P: 4.103E-08
 95% CI: (-25.3527231, 9.42314)
 ```
 
-**Null hypothesis rejected.** At α 0.05, the *time to name colours is significantly
-different* between congruent and incongruent tasks. People do not name colours
-at the same speed when the word’s meaning and its colour match, as when they
-do not match. The result confirms my expectations.
+**Null hypothesis rejected.** At significant level of 0.05, the p-value is way smaller than 0.05. Therefore, we can conclude that there is significant difference between congruent and incongruent groups. 
 
 ####6. Optional: What do you think is responsible for the effects observed? Can you think of an alternative or similar task that would result in a similar effect?
 
